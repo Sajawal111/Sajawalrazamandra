@@ -100,20 +100,34 @@ export function Projects() {
                 style={{ background: project.gradient }}
               >
                 {project.customThumb ? (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
-                    <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#c9a84c] tracking-[0.05em] leading-none">
-                      SM
-                    </div>
-                    <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-white tracking-[0.25em] uppercase">
-                      GARMENTS
-                    </div>
-                    <div className="font-serif text-[0.55rem] text-[#c9a84c] tracking-[0.15em] mt-[2px]">
-                      STYLE THAT FITS YOU
-                    </div>
-                  </div>
-                ) : (
-                  project.icon
-                )}
+  project.title === "Paramount Elevator" ? (
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
+        PARAMOUNT
+      </div>
+      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#a78bfa] tracking-[0.25em] uppercase">
+        ELEVATOR
+      </div>
+      <div className="font-serif text-[0.55rem] text-[#c4b5fd] tracking-[0.15em] mt-[2px]">
+        COMMERCIAL & HOME LIFT
+      </div>
+    </div>
+  ) : (
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#c9a84c] tracking-[0.05em] leading-none">
+        SM
+      </div>
+      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-white tracking-[0.25em] uppercase">
+        GARMENTS
+      </div>
+      <div className="font-serif text-[0.55rem] text-[#c9a84c] tracking-[0.15em] mt-[2px]">
+        STYLE THAT FITS YOU
+      </div>
+    </div>
+  )
+) : (
+  project.icon
+)}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--card)] opacity-100" />
               </div>
 
