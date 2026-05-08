@@ -20,8 +20,7 @@ const projects = [
   link: "https://v0-paramount-elevator-website.vercel.app/",
   isLive: true,
   gradient: "linear-gradient(135deg, #1a0533, #3d1a6e, #1a0533)",
-  icon: "🏢",
-  customThumb: false,
+  customThumb: true,
 },
   {
     tag: "Landing Page",
