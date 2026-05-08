@@ -13,15 +13,16 @@ const projects = [
     customThumb: true,
   },
   {
-    tag: "Web App",
-    title: "TaskFlow Dashboard",
-    description:
-      "Project management tool with real-time updates, drag-and-drop, and team collaboration.",
-    link: "#contact",
-    isLive: false,
-    gradient: "linear-gradient(135deg, #1a0533, #3d1a6e, #1a0533)",
-    icon: "💼",
-  },
+  tag: "Commercial & Home Lift",
+  title: "Paramount Elevator",
+  description:
+    "Project management tool with real-time updates, drag-and-drop, and team collaboration.",
+  link: "https://v0-paramount-elevator-website.vercel.app/",
+  isLive: true,
+  gradient: "linear-gradient(135deg, #1a0533, #3d1a6e, #1a0533)",
+  icon: "🏢",
+  customThumb: false,
+},
   {
     tag: "Landing Page",
     title: "GreenGrow Agency",
