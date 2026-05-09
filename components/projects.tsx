@@ -23,15 +23,15 @@ const projects = [
   customThumb: true,
 },
   {
-    tag: "Landing Page",
-    title: "GreenGrow Agency",
-    description:
-      "High-conversion agency landing page with animations, contact form, and CMS integration.",
-    link: "#contact",
-    isLive: false,
-    gradient: "linear-gradient(135deg, #0d1f0d, #1a4a1a, #0d3318)",
-    icon: "🌿",
-  },
+  tag: "Commercial & Home Lift",
+  title: "Vertical Lifting Solutions",
+  description:
+    "Professional elevator and lifting solutions company — commercial lifts, home elevators, and installation services.",
+  link: "https://v0-vls-business-website.vercel.app/",
+  isLive: true,
+  gradient: "linear-gradient(135deg, #0a1628, #1a3a5c, #0a1628)",
+  customThumb: true,
+},
   {
     tag: "Food & Delivery",
     title: "FoodieApp",
@@ -108,6 +108,18 @@ export function Projects() {
         ELEVATOR
       </div>
       <div className="font-serif text-[0.55rem] text-[#c4b5fd] tracking-[0.15em] mt-[2px]">
+        COMMERCIAL & HOME LIFT
+      </div>
+    </div>
+  ) : project.title === "Vertical Lifting Solutions" ? (
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
+        VERTICAL
+      </div>
+      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#60a5fa] tracking-[0.25em] uppercase">
+        LIFTING SOLUTIONS
+      </div>
+      <div className="font-serif text-[0.55rem] text-[#93c5fd] tracking-[0.15em] mt-[2px]">
         COMMERCIAL & HOME LIFT
       </div>
     </div>
