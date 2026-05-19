@@ -20,14 +20,14 @@ const contactLinks = [
   {
     icon: "💼",
     title: "LinkedIn",
-    value: "linkedin.com/in/sajawalrazamandra",
-    href: "https://linkedin.com/in/sajawalrazamandra",
+    value: "sajawal-raza-mandra-556bb7407",
+    href: "https://www.linkedin.com/in/sajawal-raza-mandra-556bb7407/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BrtJS9GMTS0GAdv%2Bp0UVCGA%3D%3D",
   },
   {
     icon: "🐙",
     title: "GitHub",
-    value: "github.com/sajawal",
-    href: "https://github.com/sajawal",
+    value: "github.com/Sajawal111",
+    href: "https://github.com/sajawal111",
   },
   {
     icon: "🟢",
