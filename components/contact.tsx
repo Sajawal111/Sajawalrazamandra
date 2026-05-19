@@ -20,7 +20,7 @@ const contactLinks = [
   {
     icon: "💼",
     title: "LinkedIn",
-    value: "www.linkedin.com/in/sajawal-raza-mandra-556bb7407/",
+    value: "sajawal-raza-mandra-556bb7407",
     href: "https://www.linkedin.com/in/sajawal-raza-mandra-556bb7407",
   },
   {
