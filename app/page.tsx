@@ -8,6 +8,8 @@ import { Projects } from "@/components/projects"
 import { Process } from "@/components/process"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import ReviewsSection from "@/components/ReviewsSection";
+import PackagesSection from "@/components/PackagesSection";
 
 export default function Home() {
   return (
@@ -18,8 +20,10 @@ export default function Home() {
       <Marquee />
       <About />
       <Services />
+      <PackagesSection /> 
       <Projects />
       <Process />
+      <ReviewsSection />
       <Contact />
       <Footer />
     </>
