@@ -16,24 +16,16 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Sajawal Raza Mandra | Professional Web Developer Pakistan',
-description: 'Sajawal Raza Mandra is a professional Web Developer specializing in React.js, Next.js, Node.js and MongoDB. 3+ years experience, 40+ projects delivered worldwide. Available for freelance.',
-keywords: [
-  'sajawal raza mandra',
-  'web developer pakistan',
-  'web developer karachi',
-  'react developer pakistan',
-  'nextjs developer pakistan',
-  'freelance web developer pakistan',
-  'mern stack developer pakistan',
-  'frontend developer pakistan',
-  'shopify developer pakistan',
-  'web design karachi',
-  'hire web developer pakistan',
-  'portfolio web developer pakistan',
-  'sajawal raza web developer',
-  'sajawal mandra developer',
-],
+  title: "Sajawal Raza Mandra — Web Developer",
+  description:
+    "Hi, I'm Sajawal Raza Mandra — a Web Developer based in Pakistan. I build fast, beautiful, and functional websites that help businesses grow online.",
+  keywords: [
+    "web developer",
+    "react developer",
+    "frontend developer",
+    "pakistan",
+    "sajawal",
+  ],
 }
 
 export default function RootLayout({
