@@ -10,6 +10,7 @@ const navLinks = [
   { href: "#projects", label: "Work" },
   { href: "#process", label: "Process" },
   { href: "#packages", label: "Packages" },
+  { href: "/blog", label: "Blog" },
 ]
 
 export function Navigation() {
