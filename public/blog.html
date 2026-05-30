@@ -331,18 +331,14 @@ footer a{color:var(--accent);text-decoration:none;}
 <div id="progress-bar"></div>
 
 <header>
-  <a href="https://sajawalraza.vercel.app"><img src="https://sajawalraza.vercel.app/images/logo.png" alt="Sajawal Raza Mandra Logo"></a>
-  <nav>
-    <a href="https://sajawalraza.vercel.app/#about" data-i18n="nav_about">About</a>
-    <a href="https://sajawalraza.vercel.app/#services" data-i18n="nav_services">Services</a>
-    <a href="https://sajawalraza.vercel.app/#projects" data-i18n="nav_work">Work</a>
-    <a href="https://sajawalraza.vercel.app/#process" data-i18n="nav_process">Process</a>
-    <a href="https://sajawalraza.vercel.app/#packages" data-i18n="nav_packages">Packages</a>
-    <a href="https://sajawalraza.vercel.app/blog" class="active" data-i18n="nav_blog">Blog</a>
-    <a href="https://sajawalraza.vercel.app/#contact" class="nav-cta" data-i18n="nav_contact">Contact</a>
-  </nav>
-  <div class="header-controls">
-    <!-- LANGUAGE -->
+  <a href="https://sajawalraza.vercel.app" class="header-logo">
+    <img src="https://sajawalraza.vercel.app/images/logo.png" alt="SM">
+  </a>
+  <div style="flex:1"></div>
+  <a href="https://sajawalraza.vercel.app/" class="nav-cta" style="text-decoration:none;padding:9px 22px;border:1.5px solid var(--accent);border-radius:6px;color:var(--accent);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;">
+    ← Home
+  </a>
+  <div class="header-controls" style="margin-left:16px">
     <div class="lang-wrapper" id="langWrapper">
       <button class="lang-btn" onclick="toggleLang()" aria-label="Select Language">
         <span class="globe">🌐</span>
@@ -358,7 +354,6 @@ footer a{color:var(--accent);text-decoration:none;}
         <div class="lang-option" onclick="setLang('ja')"><span class="flag">🇯🇵</span><span class="lang-name">Japanese</span><span class="lang-native">日本語</span></div>
       </div>
     </div>
-    <!-- THEME -->
     <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
       <div class="knob" id="themeKnob">☀️</div>
     </div>
