@@ -7,7 +7,7 @@ import { ScrollReveal } from "./scroll-reveal"
 const stats = [
   { num: "3+", label: "Years Experience" },
   { num: "40+", label: "Projects Done" },
-  { num: "100%", label: "Client Satisfaction" },
+  { num: "100%", label: "On-Time Delivery" },
 ]
 
 export function Hero() {
@@ -45,9 +45,7 @@ export function Hero() {
           </h1>
 
           <p className="text-[1.05rem] leading-[1.78] text-[var(--muted)] max-w-[460px] mb-[2.5rem] mx-auto lg:mx-0">
-            Hi, I&apos;m <strong className="text-[var(--text)]">Sajawal Raza Mandra</strong> — a
-            Web Developer based in Pakistan. I build fast, beautiful, and
-            functional websites that help businesses grow online.
+            Hi, I&apos;m <strong className="text-[var(--text)]">Sajawal Raza Mandra</strong> — a MERN Stack Developer working with clients across USA, UK & Pakistan. I build fast, scalable web apps that help businesses grow — delivered remotely, on time, every time.
           </p>
 
           <div className="flex gap-4 flex-wrap justify-center lg:justify-start">

@@ -12,7 +12,7 @@ interface Package {
 
 const pkgs: Package[] = [
   {
-    tier: "Tier 01", name: "Starter", price: "23,393", delivery: "2 days",
+    tier: "Tier 01", name: "Starter", price: "$299", delivery: "2 days",
     pages: [
       { name: "Home", desc: "Hero, intro, CTA" },
       { name: "Products", desc: "10 items listed" },
@@ -31,7 +31,7 @@ const pkgs: Package[] = [
     waSpecs: "3 pages · 10 products · Unlimited revisions · 2-day delivery",
   },
   {
-    tier: "Tier 02", name: "Professional", price: "29,241", delivery: "5 days", popular: true,
+    tier: "Tier 02", name: "Professional", price: "$499", delivery: "5 days", popular: true,
     pages: [
       { name: "Home", desc: "Hero, features, testimonials" },
       { name: "About", desc: "Brand story, team" },
@@ -52,7 +52,7 @@ const pkgs: Package[] = [
     waSpecs: "5 pages · 15 products · Unlimited revisions · 5-day delivery",
   },
   {
-    tier: "Tier 03", name: "Elite", price: "39,475", delivery: "6 days",
+    tier: "Tier 03", name: "Elite", price: "$799", delivery: "6 days",
     pages: [
       { name: "Home", desc: "Hero, features, reviews, CTA" },
       { name: "About", desc: "Story, team, mission" },
@@ -95,40 +95,40 @@ export default function PackagesSection() {
   }, []);
 
   const t = {
-    sectionBg:  isDark ? "#0e1118"  : "#f0f4f8",
-    cardBg:     isDark ? "#111111"  : "#ffffff",
-    cardBgSel:  isDark ? "#0d1a1a"  : "#f0fafa",
-    specBg:     isDark ? "#080b10"  : "#f8f9fa",
-    actionBg:   isDark ? "#111111"  : "#ffffff",
-    border:     isDark ? "#1e1e1e"  : "#e2e8f0",
-    borderSel:  isDark ? "#22d3ee"  : "#22d3ee",
-    borderPop:  isDark ? "#0e2a2d"  : "#bfecf4",
-    borderSpec: isDark ? "#1a1a1a"  : "#e2e8f0",
-    heading:    isDark ? "#ffffff"  : "#0a0a0a",
-    subtext:    isDark ? "#9ca3af"  : "#64748b",
-    tierLabel:  isDark ? "#4b5563"  : "#94a3b8",
-    tierSel:    "#22d3ee",
-    cardName:   isDark ? "#ffffff"  : "#0f172a",
-    priceCurr:  isDark ? "#6b7280"  : "#94a3b8",
-    priceMain:  isDark ? "#ffffff"  : "#0f172a",
-    priceSel:   "#22d3ee",
-    delivery:   isDark ? "#6b7280"  : "#94a3b8",
-    pageName:   isDark ? "#d1d5db"  : "#334155",
-    pageDesc:   isDark ? "#4b5563"  : "#94a3b8",
-    featOn:     isDark ? "#d1d5db"  : "#334155",
-    featOff:    isDark ? "#2d3748"  : "#cbd5e1",
-    specVal:    isDark ? "#ffffff"  : "#0f172a",
-    specKey:    isDark ? "#4b5563"  : "#94a3b8",
-    hintText:   isDark ? "#374151"  : "#94a3b8",
-    divider:    isDark ? "#1e1e1e"  : "#e2e8f0",
-    accent:     "#22d3ee",
-    accentDim:  isDark ? "#0e3a40"  : "#cff8ff",
+    sectionBg: isDark ? "#0e1118" : "#f0f4f8",
+    cardBg: isDark ? "#111111" : "#ffffff",
+    cardBgSel: isDark ? "#0d1a1a" : "#f0fafa",
+    specBg: isDark ? "#080b10" : "#f8f9fa",
+    actionBg: isDark ? "#111111" : "#ffffff",
+    border: isDark ? "#1e1e1e" : "#e2e8f0",
+    borderSel: isDark ? "#22d3ee" : "#22d3ee",
+    borderPop: isDark ? "#0e2a2d" : "#bfecf4",
+    borderSpec: isDark ? "#1a1a1a" : "#e2e8f0",
+    heading: isDark ? "#ffffff" : "#0a0a0a",
+    subtext: isDark ? "#9ca3af" : "#64748b",
+    tierLabel: isDark ? "#4b5563" : "#94a3b8",
+    tierSel: "#22d3ee",
+    cardName: isDark ? "#ffffff" : "#0f172a",
+    priceCurr: isDark ? "#6b7280" : "#94a3b8",
+    priceMain: isDark ? "#ffffff" : "#0f172a",
+    priceSel: "#22d3ee",
+    delivery: isDark ? "#6b7280" : "#94a3b8",
+    pageName: isDark ? "#d1d5db" : "#334155",
+    pageDesc: isDark ? "#4b5563" : "#94a3b8",
+    featOn: isDark ? "#d1d5db" : "#334155",
+    featOff: isDark ? "#2d3748" : "#cbd5e1",
+    specVal: isDark ? "#ffffff" : "#0f172a",
+    specKey: isDark ? "#4b5563" : "#94a3b8",
+    hintText: isDark ? "#374151" : "#94a3b8",
+    divider: isDark ? "#1e1e1e" : "#e2e8f0",
+    accent: "#22d3ee",
+    accentDim: isDark ? "#0e3a40" : "#cff8ff",
   };
 
   function openWhatsApp() {
     if (selected === null) return;
     const p = pkgs[selected];
-    const msg = `Hello Sajawal! 👋\n\nI visited your website and I'm interested in your *${p.name} Package*.\n\n*📦 Package:* ${p.name} (${p.tier})\n*💰 Price:* PKR ${p.price}\n*⏱ Delivery:* ${p.delivery}\n*📄 Pages:* ${p.waPages}\n*✅ Includes:* ${p.waFeatures}\n*📊 Summary:* ${p.waSpecs}\n\nCould you please explain the next steps? Looking forward to hearing from you!`;
+    const msg = `Hello Sajawal! 👋\n\nI visited your website and I'm interested in your *${p.name} Package*.\n\n*📦 Package:* ${p.name} (${p.tier})\n*💰 Price:* usd ${p.price}\n*⏱ Delivery:* ${p.delivery}\n*📄 Pages:* ${p.waPages}\n*✅ Includes:* ${p.waFeatures}\n*📊 Summary:* ${p.waSpecs}\n\nCould you please explain the next steps? Looking forward to hearing from you!`;
     window.open(`https://wa.me/923111101898?text=${encodeURIComponent(msg)}`, "_blank");
   }
 
@@ -191,7 +191,7 @@ export default function PackagesSection() {
         </h2>
 
         <p style={{ fontSize: "16px", color: t.subtext, margin: "0 0 60px", maxWidth: "500px", lineHeight: 1.6 }}>
-          Pick a plan that fits your goals.
+          Transparent pricing for global clients. No hidden fees. Fast delivery.
         </p>
 
         {/* Grid */}
@@ -245,7 +245,7 @@ export default function PackagesSection() {
 
                 {/* Price */}
                 <div style={{ display: "flex", alignItems: "baseline", gap: "4px", paddingBottom: "16px", borderBottom: `1px solid ${t.divider}`, marginBottom: "16px" }}>
-                  <span style={{ fontSize: "11px", color: t.priceCurr }}>PKR</span>
+                  <span style={{ fontSize: "11px", color: t.priceCurr }}>usd</span>
                   <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "28px", fontWeight: 700, lineHeight: 1, color: isSel ? t.priceSel : t.priceMain, transition: "color 0.2s" }}>
                     {pkg.price}
                   </span>
@@ -308,7 +308,7 @@ export default function PackagesSection() {
             <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "18px", flexWrap: "wrap" }}>
               <div>
                 <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "22px", fontWeight: 800, color: t.heading }}>{sel.name} Package</p>
-                <p style={{ fontSize: "13px", color: t.accent, marginTop: "3px" }}>PKR {sel.price} · {sel.delivery}</p>
+                <p style={{ fontSize: "13px", color: t.accent, marginTop: "3px" }}>usd {sel.price} · {sel.delivery}</p>
               </div>
               {/* FIX 3: Action bar specs — bigger numbers + labels */}
               <div style={{ display: "flex", gap: "28px", marginLeft: "auto" }}>
