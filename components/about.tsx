@@ -62,8 +62,7 @@ export function About() {
               <strong className="text-[var(--text)]">
                 Sajawal Raza Mandra
               </strong>
-              , a passionate Web Developer with a strong eye for design and a
-              love for building things that work beautifully on every device.
+              , a full-stack MERN developer working remotely with startups and businesses worldwide. I've delivered 40+ projects for clients in the USA, UK, and Pakistan — always on time, always with clean code.
             </p>
             <p className="text-[1.02rem] leading-[1.82] text-[var(--muted)] mb-[1.1rem]">
               I specialize in turning ideas into{" "}
@@ -75,8 +74,7 @@ export function About() {
               project.
             </p>
             <p className="text-[1.02rem] leading-[1.82] text-[var(--muted)] mb-[1.1rem]">
-              When I&apos;m not coding, I&apos;m exploring new technologies and
-              refining my craft to stay ahead of the curve.
+             I work across timezones — whether you're in New York, London, or Karachi, I'm easy to reach and quick to respond.
             </p>
 
             <div className="flex flex-wrap gap-[0.55rem] mt-[1.8rem]">

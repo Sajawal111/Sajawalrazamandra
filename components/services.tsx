@@ -29,7 +29,7 @@ const services = [
     icon: "🛒",
     title: "E-Commerce Solutions",
     description:
-      "Full-featured online stores with secure payments, product management, and smooth shopping experiences.",
+      "Shopify & custom e-commerce stores with Stripe, PayPal integration — built for global customers.",
   },
   {
     icon: "🔗",

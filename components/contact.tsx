@@ -14,7 +14,7 @@ const contactLinks = [
   {
     icon: "💬",
     title: "WhatsApp",
-    value: "+92 311 1101898",
+    value: "+92 311 1101898 🟢 Currently available — Usually reply within 4 hours",
     href: "https://wa.me/923111101898",
   },
   {
