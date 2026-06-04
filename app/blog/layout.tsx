@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Blog — Web Development Insights | Sajawal Raza Mandra",
   description: "Expert insights on React.js, Next.js, MERN Stack, Shopify, SEO & Freelancing by Sajawal Raza Mandra — Professional Web Developer Pakistan with 40+ projects delivered worldwide.",
-   keywords: [
+keywords: [
   // Brand
   'sajawal raza mandra',
   'sajawal raza web developer',
