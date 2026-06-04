@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Sajawal Raza Mandra | MERN Stack Developer — Trusted by Clients in USA, UK & Pakistan',
   description: 'MERN Stack developer with 3+ years experience. 40+ projects delivered for clients in USA, UK & Pakistan. Fast delivery, clean code, timezone-friendly. Available for remote work.',
-  keywords: [
+ keywords: [
   // Brand
   'sajawal raza mandra',
   'sajawal raza web developer',
