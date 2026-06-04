@@ -3,6 +3,7 @@ import { Syne, DM_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 const syne = Syne({
   subsets: ["latin"],
@@ -19,27 +20,20 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Sajawal Raza Mandra | MERN Stack Developer — Trusted by Clients in USA, UK & Pakistan',
   description: 'MERN Stack developer with 3+ years experience. 40+ projects delivered for clients in USA, UK & Pakistan. Fast delivery, clean code, timezone-friendly. Available for remote work.',
- keywords: [
-  // Brand
-  'sajawal raza mandra',
-  'sajawal raza web developer',
-
-  // Worldwide — USA/UK clients
-  'hire mern stack developer',
-  'hire react developer',
-  'remote full stack developer',
-  'freelance web developer',
-  'hire nextjs developer',
-
-  // Pakistan Local
-  'mern stack developer pakistan',
-  'web developer karachi',
-  'freelance web developer pakistan',
-
-  // Tech + Service
-  'shopify developer',
-  'react developer',
-],
+  keywords: [
+    'sajawal raza mandra',
+    'sajawal raza web developer',
+    'hire mern stack developer',
+    'hire react developer',
+    'remote full stack developer',
+    'freelance web developer',
+    'hire nextjs developer',
+    'mern stack developer pakistan',
+    'web developer karachi',
+    'freelance web developer pakistan',
+    'shopify developer',
+    'react developer',
+  ],
 }
 
 export default function RootLayout({
@@ -50,7 +44,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -62,12 +55,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W28P8DP6');`,
           }}
         />
-        {/* End Google Tag Manager */}
       </head>
       <body
         className={`${syne.variable} ${dmSans.variable} font-sans antialiased bg-[var(--bg)]`}
       >
-        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W28P8DP6"
@@ -76,9 +67,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
 
         {children}
+        <WhatsAppButton />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
