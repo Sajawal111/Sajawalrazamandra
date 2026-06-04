@@ -236,7 +236,7 @@ export default function BlogPostPage() {
 
         {/* FOOTER */}
         <footer className="art-footer">
-          © 2026 <a href="https://sajawalraza.vercel.app">Sajawal Raza Mandra</a> — Professional Web Developer Pakistan
+          © 2024 <a href="https://sajawalraza.vercel.app">Sajawal Raza Mandra</a> — Professional Web Developer Pakistan
         </footer>
 
       </div>

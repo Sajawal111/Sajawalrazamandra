@@ -13,54 +13,24 @@ const projects = [
     customThumb: true,
   },
   {
-  tag: "Commercial & Home Lift",
-  title: "Paramount Elevator",
-  description:
-    "Project management tool with real-time updates, drag-and-drop, and team collaboration.",
-  link: "https://v0-paramount-elevator-website.vercel.app/",
-  isLive: true,
-  gradient: "linear-gradient(135deg, #1a0533, #3d1a6e, #1a0533)",
-  customThumb: true,
-},
-  {
-  tag: "Commercial & Home Lift",
-  title: "Vertical Lifting Solutions",
-  description:
-    "Professional elevator and lifting solutions company — commercial lifts, home elevators, and installation services.",
-  link: "https://v0-vls-business-website.vercel.app/",
-  isLive: true,
-  gradient: "linear-gradient(135deg, #0a1628, #1a3a5c, #0a1628)",
-  customThumb: true,
-},
-  {
-    tag: "Food & Delivery",
-    title: "FoodieApp",
+    tag: "Commercial & Home Lift",
+    title: "Paramount Elevator",
     description:
-      "Restaurant ordering app with live order tracking, menus, and admin panel.",
-    link: "#contact",
-    isLive: false,
-    gradient: "linear-gradient(135deg, #1f0d0d, #4a1a1a, #330d1a)",
-    icon: "🍕",
+      "Premium home lift & elevator website for a Karachi-based company — services, projects, gallery & quote system.",
+    link: "https://v0-paramount-elevator-website.vercel.app/",
+    isLive: true,
+    gradient: "linear-gradient(135deg, #1a0533, #3d1a6e, #1a0533)",
+    customThumb: true,
   },
   {
-    tag: "Analytics",
-    title: "DataViz Pro",
+    tag: "Commercial & Home Lift",
+    title: "Vertical Lifting Solutions",
     description:
-      "Interactive data visualization dashboard with charts, filters, and CSV export.",
-    link: "#contact",
-    isLive: false,
-    gradient: "linear-gradient(135deg, #0d1f2a, #1a3a4a, #0d2233)",
-    icon: "📊",
-  },
-  {
-    tag: "EdTech",
-    title: "LearnHub",
-    description:
-      "Online learning platform with video courses, quizzes, and student progress tracking.",
-    link: "#contact",
-    isLive: false,
-    gradient: "linear-gradient(135deg, #1a1a0d, #3a3a1a, #2a2a0d)",
-    icon: "🎓",
+      "Professional elevator and lifting solutions company — commercial lifts, home elevators, and installation services.",
+    link: "https://v0-vls-business-website.vercel.app/",
+    isLive: true,
+    gradient: "linear-gradient(135deg, #0a1628, #1a3a5c, #0a1628)",
+    customThumb: true,
   },
 ]
 
@@ -98,47 +68,43 @@ export function Projects() {
                 className="h-[190px] flex items-center justify-center text-[2.8rem] relative overflow-hidden"
                 style={{ background: project.gradient }}
               >
-                {project.customThumb ? (
-  project.title === "Paramount Elevator" ? (
-    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
-      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
-        PARAMOUNT
-      </div>
-      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#a78bfa] tracking-[0.25em] uppercase">
-        ELEVATOR
-      </div>
-      <div className="font-serif text-[0.55rem] text-[#c4b5fd] tracking-[0.15em] mt-[2px]">
-        COMMERCIAL & HOME LIFT
-      </div>
-    </div>
-  ) : project.title === "Vertical Lifting Solutions" ? (
-    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
-      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
-        VERTICAL
-      </div>
-      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#60a5fa] tracking-[0.25em] uppercase">
-        LIFTING SOLUTIONS
-      </div>
-      <div className="font-serif text-[0.55rem] text-[#93c5fd] tracking-[0.15em] mt-[2px]">
-        COMMERCIAL & HOME LIFT
-      </div>
-    </div>
-  ) : (
-    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
-      <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#c9a84c] tracking-[0.05em] leading-none">
-        SM
-      </div>
-      <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-white tracking-[0.25em] uppercase">
-        GARMENTS
-      </div>
-      <div className="font-serif text-[0.55rem] text-[#c9a84c] tracking-[0.15em] mt-[2px]">
-        STYLE THAT FITS YOU
-      </div>
-    </div>
-  )
-) : (
-  project.icon
-)}
+                {project.title === "Paramount Elevator" ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+                    <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
+                      PARAMOUNT
+                    </div>
+                    <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#a78bfa] tracking-[0.25em] uppercase">
+                      ELEVATOR
+                    </div>
+                    <div className="font-serif text-[0.55rem] text-[#c4b5fd] tracking-[0.15em] mt-[2px]">
+                      COMMERCIAL & HOME LIFT
+                    </div>
+                  </div>
+                ) : project.title === "Vertical Lifting Solutions" ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+                    <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#ffffff] tracking-[0.05em] leading-none">
+                      VERTICAL
+                    </div>
+                    <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-[#60a5fa] tracking-[0.25em] uppercase">
+                      LIFTING SOLUTIONS
+                    </div>
+                    <div className="font-serif text-[0.55rem] text-[#93c5fd] tracking-[0.15em] mt-[2px]">
+                      COMMERCIAL & HOME LIFT
+                    </div>
+                  </div>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+                    <div className="font-[var(--font-heading)] text-[2rem] font-black text-[#c9a84c] tracking-[0.05em] leading-none">
+                      SM
+                    </div>
+                    <div className="font-[var(--font-heading)] text-[0.65rem] font-bold text-white tracking-[0.25em] uppercase">
+                      GARMENTS
+                    </div>
+                    <div className="font-serif text-[0.55rem] text-[#c9a84c] tracking-[0.15em] mt-[2px]">
+                      STYLE THAT FITS YOU
+                    </div>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--card)] opacity-100" />
               </div>
 
@@ -163,10 +129,10 @@ export function Projects() {
                 </p>
                 <Link
                   href={project.link}
-                  target={project.isLive ? "_blank" : undefined}
+                  target="_blank"
                   className="inline-flex items-center gap-[0.4rem] font-[var(--font-heading)] text-[0.76rem] font-bold text-[var(--accent)] mt-[0.9rem] no-underline tracking-[0.05em] uppercase transition-all duration-200 hover:gap-[0.8rem]"
                 >
-                  {project.isLive ? "View Live Store →" : "View Project →"}
+                  View Live Store →
                 </Link>
               </div>
             </div>
