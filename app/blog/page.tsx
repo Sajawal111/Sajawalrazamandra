@@ -273,7 +273,7 @@ export default function BlogPage() {
 
         {/* FOOTER */}
         <footer className="blog-footer">
-          © 2026 <a href="https://sajawalraza.vercel.app">Sajawal Raza Mandra</a> — {t.footer_text} &nbsp;·&nbsp; {t.footer_rights}
+          © 2024 <a href="https://sajawalraza.vercel.app">Sajawal Raza Mandra</a> — {t.footer_text} &nbsp;·&nbsp; {t.footer_rights}
         </footer>
 
       </div>
