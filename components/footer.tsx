@@ -5,7 +5,7 @@ export function Footer() {
         SM
       </span>
       <p className="text-[0.78rem] text-[var(--muted)]">
-        &copy; 2025 Sajawal Raza Mandra — All rights reserved
+        &copy; 2024 Sajawal Raza Mandra — All rights reserved
       </p>
       <p className="text-[0.75rem] text-[var(--muted)]">
         Built with ❤️ in Pakistan
