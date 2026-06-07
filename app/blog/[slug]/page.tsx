@@ -5,24 +5,6 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import { getPostBySlug } from "../../../lib/posts"
 
-const articleImages: Record<string, string> = {
-  "react-vs-nextjs-2026": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop",
-  "how-to-build-shopify-store-pakistani-brands-2026": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-  "mern-stack-2026-worth-learning-pakistan": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop",
-  "how-to-land-fiverr-client-pakistan": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-  "website-speed-core-web-vitals-guide-2026": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-  "tailwind-css-tricks-ui-design-2026": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
-  "complete-seo-guide-pakistani-websites-2026": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=1200&auto=format&fit=crop",
-  "website-banana-ka-kharcha-pakistan-2026": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
-  "wordpress-vs-nextjs-pakistani-businesses": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
-  "how-to-receive-freelancing-payments-pakistan-2026": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
-  "rest-api-integration-nextjs-complete-guide": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
-  "how-to-build-portfolio-website-gets-clients-2026": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
-  "mongodb-complete-guide-pakistani-developers": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop",
-  "how-to-start-online-store-pakistan-2026": "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop",
-  "how-to-setup-google-analytics-4-website-2026": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-}
-
 export default function BlogPostPage() {
   const params = useParams()
   const slug = params?.slug as string
@@ -30,6 +12,9 @@ export default function BlogPostPage() {
 
   const [theme, setTheme] = useState<string>("dark")
   const [progress, setProgress] = useState(0)
+  const [shareOpen, setShareOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const shareRef = useRef<HTMLDivElement>(null)
 
   // Load saved theme
   useEffect(() => {
@@ -52,10 +37,38 @@ export default function BlogPostPage() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Close share on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (shareRef.current && !shareRef.current.contains(e.target as Node)) {
+        setShareOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [])
+
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark"
     setTheme(next)
     if (typeof window !== "undefined") localStorage.setItem("blog-theme", next)
+  }
+
+  const getUrl = () => typeof window !== "undefined" ? window.location.href : ""
+  const getTitle = () => post?.title || ""
+
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(getUrl())}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(getUrl())}&text=${encodeURIComponent(getTitle())}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(getTitle() + " " + getUrl())}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getUrl())}`,
+    telegram: `https://t.me/share/url?url=${encodeURIComponent(getUrl())}&text=${encodeURIComponent(getTitle())}`,
+  }
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(getUrl())
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   if (!post) {
@@ -68,7 +81,7 @@ export default function BlogPostPage() {
     )
   }
 
-  const heroImg = articleImages[post.slug] || post.img || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop"
+  const heroImg = post.img || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop"
 
   return (
     <>
@@ -92,6 +105,7 @@ export default function BlogPostPage() {
         .theme-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--accent);transition:transform .35s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;justify-content:center;font-size:.7rem;pointer-events:none;}
 
         /* HERO */
+        .art-hero{position:relative;height:520px;overflow:hidden;margin-top:72px;background:var(--bg2);}
         .art-hero-img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) contrast(1.1);}
         [data-theme="light"] .art-hero-img{filter:brightness(.6) contrast(1.05);}
         .art-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 18%,transparent 65%);}
@@ -121,7 +135,6 @@ export default function BlogPostPage() {
         [data-theme="light"] .art-content strong{color:#0a0e1a!important;}
         [data-theme="light"] .art-content p{color:#1e293b;}
         [data-theme="light"] .art-content li{color:#1e293b;}
-        .art-hero{position:relative;height:520px;overflow:hidden;margin-top:72px;background:var(--bg2);}
         .art-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(0,212,255,.3);transition:.2s;}
         .art-content a:hover{border-bottom-color:var(--accent);}
         .art-content pre{background:var(--code-bg);border:1px solid var(--border2);border-radius:12px;padding:20px 22px;overflow-x:auto;margin:20px 0;font-size:.85rem;line-height:1.7;}
@@ -148,6 +161,29 @@ export default function BlogPostPage() {
         .art-footer{padding:32px 52px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.83rem;}
         .art-footer a{color:var(--accent);text-decoration:none;}
 
+        /* FLOATING BUTTONS */
+        .float-btns{position:fixed;right:24px;bottom:100px;display:flex;flex-direction:column;gap:12px;z-index:999;}
+
+        /* SHARE FLOAT */
+        .share-wrap{position:relative;}
+        .share-btn{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#0099cc);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,255,.45);cursor:pointer;transition:transform .3s,box-shadow .3s;border:none;}
+        .share-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,212,255,.6);}
+        .share-btn svg{width:24px;height:24px;}
+
+        /* SHARE POPUP */
+        .share-popup{position:absolute;bottom:68px;right:0;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;padding:20px;min-width:240px;box-shadow:0 16px 48px var(--shadow);opacity:0;pointer-events:none;transform:translateY(12px) scale(.95);transition:all .3s cubic-bezier(.16,1,.3,1);}
+        .share-popup.open{opacity:1;pointer-events:all;transform:translateY(0) scale(1);}
+        .share-popup-title{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600;}
+        .share-options{display:flex;flex-direction:column;gap:8px;}
+        .share-option{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;cursor:pointer;transition:.2s;text-decoration:none;color:var(--text);border:1px solid transparent;}
+        .share-option:hover{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.15);}
+        .share-option-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+        .share-option-label{font-size:.85rem;font-weight:500;}
+        .share-divider{height:1px;background:var(--border);margin:8px 0;}
+        .copy-btn{width:100%;display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;cursor:pointer;transition:.2s;background:transparent;color:var(--text);border:1px solid var(--border2);font-family:var(--font-b);}
+        .copy-btn:hover{border-color:var(--accent);background:rgba(0,212,255,.06);}
+        .copy-icon{width:36px;height:36px;border-radius:10px;background:rgba(0,212,255,.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+
         @media(max-width:768px){
           .art-header{padding:0 16px;}
           .art-hero{height:380px;}
@@ -155,6 +191,8 @@ export default function BlogPostPage() {
           .art-body,.art-divider,.back-section{padding-left:16px;padding-right:16px;}
           .art-title{font-size:1.6rem;}
           .art-footer{padding:24px 16px;}
+          .float-btns{right:16px;bottom:90px;}
+          .share-popup{right:0;min-width:220px;}
         }
       `}</style>
 
@@ -166,11 +204,8 @@ export default function BlogPostPage() {
         {/* HEADER */}
         <header className="art-header">
           <a href="https://sajawalraza.vercel.app" className="header-logo">
-            <img
-              src="https://sajawalraza.vercel.app/images/logo.png"
-              alt="SM"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }}
-            />
+            <img src="https://sajawalraza.vercel.app/images/logo.png" alt="SM"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
           </a>
           <div style={{ flex: 1 }} />
           <Link href="/blog" className="nav-back">← All Articles</Link>
@@ -202,7 +237,6 @@ export default function BlogPostPage() {
 
         {/* ARTICLE BODY */}
         <div className="art-body">
-          {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div className="art-tags">
               {post.tags.map((tag: string) => (
@@ -210,34 +244,87 @@ export default function BlogPostPage() {
               ))}
             </div>
           )}
-
-          {/* Excerpt */}
           {post.excerpt && (
             <p style={{ fontSize: "1.1rem", color: "var(--muted)", lineHeight: "1.8", marginBottom: "36px", fontStyle: "italic", borderLeft: "3px solid var(--accent)", paddingLeft: "18px" }}>
               {post.excerpt}
             </p>
           )}
-
-          {/* Content */}
-          <div
-            className="art-content"
-            dangerouslySetInnerHTML={{ __html: post.content || "<p>Content coming soon.</p>" }}
-          />
+          <div className="art-content" dangerouslySetInnerHTML={{ __html: post.content || "<p>Content coming soon.</p>" }} />
         </div>
 
         <div className="art-divider"><hr /></div>
 
-        {/* Back Button */}
         <div className="back-section">
-          <Link href="/blog" className="back-card">
-            ← Back to All Articles
-          </Link>
+          <Link href="/blog" className="back-card">← Back to All Articles</Link>
         </div>
 
-        {/* FOOTER */}
         <footer className="art-footer">
           © 2024 <a href="https://sajawalraza.vercel.app">Sajawal Raza Mandra</a> — Professional Web Developer Pakistan
         </footer>
+
+        {/* ── FLOATING BUTTONS ── */}
+        <div className="float-btns">
+
+          {/* SHARE BUTTON */}
+          <div className="share-wrap" ref={shareRef}>
+            <button className="share-btn" onClick={() => setShareOpen(p => !p)} title="Share Article">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
+
+            <div className={`share-popup${shareOpen ? " open" : ""}`}>
+              <div className="share-popup-title">Share This Article</div>
+              <div className="share-options">
+
+                <a className="share-option" href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
+                  <div className="share-option-icon" style={{background:"rgba(24,119,242,.15)"}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </div>
+                  <span className="share-option-label">Facebook</span>
+                </a>
+
+                <a className="share-option" href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
+                  <div className="share-option-icon" style={{background:"rgba(0,0,0,.15)"}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </div>
+                  <span className="share-option-label">X (Twitter)</span>
+                </a>
+
+                <a className="share-option" href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer">
+                  <div className="share-option-icon" style={{background:"rgba(37,211,102,.15)"}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  </div>
+                  <span className="share-option-label">WhatsApp</span>
+                </a>
+
+                <a className="share-option" href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                  <div className="share-option-icon" style={{background:"rgba(10,102,194,.15)"}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  </div>
+                  <span className="share-option-label">LinkedIn</span>
+                </a>
+
+                <a className="share-option" href={shareLinks.telegram} target="_blank" rel="noopener noreferrer">
+                  <div className="share-option-icon" style={{background:"rgba(0,136,204,.15)"}}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#0088CC"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                  </div>
+                  <span className="share-option-label">Telegram</span>
+                </a>
+
+                <div className="share-divider" />
+
+                <button className="copy-btn" onClick={copyLink}>
+                  <div className="copy-icon">{copied ? "✅" : "🔗"}</div>
+                  <span style={{fontSize:".85rem",fontWeight:500}}>{copied ? "Link Copied!" : "Copy Link"}</span>
+                </button>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </>
