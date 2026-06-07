@@ -4,24 +4,6 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { posts } from "../../lib/posts"
 
-const articleImages: Record<string, string> = {
-  "react-vs-nextjs-2026": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop",
-  "how-to-build-shopify-store-pakistani-brands-2026": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-  "mern-stack-2026-worth-learning-pakistan": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop",
-  "how-to-land-fiverr-client-pakistan": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-  "website-speed-core-web-vitals-guide-2026": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-  "tailwind-css-tricks-ui-design-2026": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
-  "complete-seo-guide-pakistani-websites-2026": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=1200&auto=format&fit=crop",
-  "website-banana-ka-kharcha-pakistan-2026": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
-  "wordpress-vs-nextjs-pakistani-businesses": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
-  "how-to-receive-freelancing-payments-pakistan-2026": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
-  "rest-api-integration-nextjs-complete-guide": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
-  "how-to-build-portfolio-website-gets-clients-2026": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
-  "mongodb-complete-guide-pakistani-developers": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop",
-  "how-to-start-online-store-pakistan-2026": "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop",
-  "how-to-setup-google-analytics-4-website-2026": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-}
-
 type LangKey = "en" | "ur" | "ro" | "hi" | "zh" | "ja"
 
 const i18n: Record<LangKey, { label: string; flag: string; hero_tag: string; hero_h1: string; hero_h1_span: string; hero_p: string; read_art: string; min_read: string; footer_text: string; footer_rights: string }> = {
@@ -243,7 +225,7 @@ export default function BlogPage() {
               <div className="glow-orb" />
               <div className="card-img-wrap">
                 <img
-                  src={articleImages[post.slug] || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"}
+                  src={post.img || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"}
                   alt={post.title}
                   loading={index < 3 ? "eager" : "lazy"}
                 />
