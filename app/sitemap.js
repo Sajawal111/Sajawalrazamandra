@@ -114,18 +114,6 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: 'https://sajawalraza.vercel.app/blog/nextjs-vs-wordpress-which-is-better-2026',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://sajawalraza.vercel.app/blog/how-much-does-a-website-cost-2026',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: 'https://sajawalraza.vercel.app/blog/mern-stack-vs-nextjs-fullstack-what-to-learn-2026',
       lastModified: new Date(),
       changeFrequency: 'monthly',

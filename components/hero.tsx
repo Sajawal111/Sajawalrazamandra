@@ -93,7 +93,7 @@ export function Hero() {
             {/* Photo */}
             <Image
               src="/images/about-photo.png"
-              alt="Sajawal Raza Mandra"
+              alt="Sajawal Raza Mandra - Full Stack Web Developer Pakistan"
               width={460}
               height={560}
               className="w-full rounded-[20px] relative z-20"

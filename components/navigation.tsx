@@ -19,7 +19,7 @@ export function Navigation() {
       <Link href="#" className="nav-logo">
         <Image
           src="/images/logo.png"
-          alt="SM Logo"
+          alt="Sajawal Raza Mandra - Web Developer Pakistan"
           width={90}
           height={60}
           className="h-12 w-auto"
