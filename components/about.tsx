@@ -37,7 +37,7 @@ export function About() {
           <div className="relative">
             <Image
               src="/images/about-photo.png"
-              alt="Sajawal Raza Mandra"
+              alt="Sajawal Raza Mandra - MERN Stack Developer Karachi"
               width={500}
               height={600}
               className="w-full rounded-[20px]"
