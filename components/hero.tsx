@@ -98,6 +98,8 @@ export function Hero() {
               height={560}
               className="w-full rounded-[20px] relative z-20"
               priority
+              fetchPriority="high"
+              quality={85}
             />
 
             {/* Glow */}
