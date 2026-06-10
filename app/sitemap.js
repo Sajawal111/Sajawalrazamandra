@@ -14,7 +14,7 @@ export default function sitemap() {
       priority: 0.9,
     },
 
-    // ── Blog Articles ──
+    // ── Original Blog Articles ──
     {
       url: 'https://sajawalraza.vercel.app/blog/react-vs-nextjs-2026',
       lastModified: new Date(),
@@ -106,9 +106,21 @@ export default function sitemap() {
       priority: 0.8,
     },
 
-    // ── New Blog Articles ──
+    // ── New Batch 1 ──
     {
       url: 'https://sajawalraza.vercel.app/blog/how-to-hire-pakistani-web-developer-2026',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://sajawalraza.vercel.app/blog/nextjs-vs-wordpress-which-is-better-2026',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://sajawalraza.vercel.app/blog/how-much-does-a-website-cost-2026',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -121,6 +133,20 @@ export default function sitemap() {
     },
     {
       url: 'https://sajawalraza.vercel.app/blog/how-to-find-reliable-freelancer-fiverr-2026',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+
+    // ── New Batch 2 ──
+    {
+      url: 'https://sajawalraza.vercel.app/blog/why-freelancers-fail-first-year-2026',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://sajawalraza.vercel.app/blog/how-to-find-web-developer-uk-2026',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
